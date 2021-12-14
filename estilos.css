@@ -1,0 +1,145 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: #e0e0e0;
+	color: #1d1d1d;
+}
+
+.contenedor {
+	font-family: 'Montserrat', sans-serif;
+	width: 90%;
+	max-width: 1000px;
+	margin: 40px auto 100px auto;
+
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 40px;
+}
+
+.contenedor .pelicula {
+	text-align: center;
+}
+
+.contenedor .pelicula .titulo {
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.contenedor .pelicula .poster {
+	width: 100%;
+	margin-bottom: 10px;
+	border-radius: 15px;
+}
+
+.paginacion {
+	position: fixed;
+	bottom: 0;
+	background: #00214B;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+	padding: 10px;
+}
+
+.paginacion button {
+	cursor: pointer;
+	border: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	height: 50px;
+	width: 200px;
+	background: #44CDEF;
+	color: #fff;
+	border-radius: 100px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+	transition: .3s ease all;
+}
+
+.paginacion button:hover {
+	background: #F7984E;
+}
+
+.titulo{
+	text-align: center;
+	text-transform: uppercase;
+}
+.titulo a{
+	text-decoration: none;
+	color:#1d1d1d ;
+}
+.pelicula:hover{
+	transform: scale(1.1);
+	cursor: pointer;
+}
+
+.poster-modal{
+	width: 30%;
+	margin-bottom: 10px;
+	border-radius: 15px;
+}
+
+.datos-pelicula img{
+	display: block;
+margin-left: auto;
+margin-right: auto;
+}
+
+.modal-footer button{
+	border-radius: 100px;
+	background: #44CDEF;
+	border: none;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+}
+
+.modal-footer button:hover{
+	background: #F7984E;
+}
+hr.hr-1{
+	width: 35%;
+	background-color: #44CDEF;
+	height: 3px;
+	padding-top: 0;
+	margin-top: 0;
+}
+
+.poster-pelicula{
+	position:relative;
+	text-align: center;
+	/* display: inline-block; */
+}
+
+div.badge-overage{
+	position: absolute;
+	width: 35px;
+  height: 35px;
+	border-radius: 50%;
+	background-color: #F7984E;
+	color: #fff;
+	padding: 5px;
+	font-size:18px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+	top: 92%;
+	left: 61%;
+}
+.productoras{
+	display: flex;
+   align-items: center;
+}
+.productoras img{
+	width: 12%;
+	line-height: 200px;
+ 
+	border: none;
+}
+
+
