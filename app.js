@@ -57,28 +57,33 @@ const cargarPelicula = async (idPelicula) => {
     tituloModal.innerHTML = '';
     const respuesta = await fetch(`https://api.themoviedb.org/3/movie/${idPelicula}?api_key=23668f2caf6a3f8ff3a4aa1643b9ecab&language=es-MX`)
     if (respuesta.status === 200) {
-      const datos = await respuesta.json()
-      tituloModal.textContent = datos.title
+      const datos = await respuesta.json();
+
+      const { title, vote_average, poster_path, homepage, overview, release_date, genres, spoken_languages, production_companies } = datos;
+
+      tituloModal.textContent = title
       let generos = '', lenguajes = '', productoras = '';
-      datos.genres.forEach((genero) => { generos += `<span class="badge rounded-pill bg-danger me-2">${genero.name}</span>` })
-      datos.spoken_languages.forEach((lenguaje) => { lenguajes += `<span class="badge rounded-pill bg-secondary me-2">${lenguaje.name}</span>` })
-      datos.production_companies.forEach((productora) => {
+
+      genres.forEach((genero) => { generos += `<span class="badge rounded-pill bg-danger me-2">${genero.name}</span>` })
+      spoken_languages.forEach((lenguaje) => { lenguajes += `<span class="badge rounded-pill bg-secondary me-2">${lenguaje.name}</span>` })
+      production_companies.forEach((productora) => {
         productoras += `<img src="${productora.logo_path !== null ? `https://image.tmdb.org/t/p/w500/${productora.logo_path}` : "./default-placeholder.png"} " alt="${productora.name}" class="img-fluid p-2 bd-highlight">`
       })
+
       let pelicula = `<div class="datos-pelicula">
 						<div class="poster-pelicula">
-							<img src="https://image.tmdb.org/t/p/w500/${datos.poster_path}" class="poster-modal img-thumbnail" alt="${datos.title}">
-							<div class="badge-overage">${datos.vote_average}</div>
+							<img src="https://image.tmdb.org/t/p/w500/${poster_path}" class="poster-modal img-thumbnail" alt="${title}">
+							<div class="badge-overage">${vote_average}</div>
 						</div>
-						<h3 class="titulo"><a href="${datos.homepage}" target="_blank" rel="noopener noreferrer">${datos.title}</a></h3>
+						<h3 class="titulo"><a href="${homepage}" target="_blank" rel="noopener noreferrer">${title}</a></h3>
 
 						<h4 class="mt-4"><strong>Información general</strong></h4>
 						<hr class="hr-1">
-						<p class="text-start">${datos.overview}</p>
+						<p class="text-start">${overview}</p>
 
 						<h4><strong>Fecha de lanzamiento</strong></h4>
 						<hr class="hr-1">
-						<p class="text-start"><i class="bi bi-calendar-check me-2"></i> ${datos.release_date}</p>
+						<p class="text-start"><i class="bi bi-calendar-check me-2"></i> ${release_date}</p>
 
 						<h4><strong>Generos</strong></h4>
 						<hr class="hr-1">
